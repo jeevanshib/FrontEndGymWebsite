@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Transaction Pages</title>
+<link rel="stylesheet" href="   https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="stylesheet"
+	href="fonts/material-icon/css/material-design-iconic-font.min.css">
+<!-- Main css -->
+  <link rel="stylesheet" href="style1.css">  
+    <Style>
+        #amount-form{
+            height: 40vh;
+            width: 55vh;
+            box-sizing: content-box;
+            background-color: rgba(254, 254, 254, 0.511);
+            margin: auto;
+            margin-top: 7%;
+            border-radius: 10px;
+        }
+        .amt{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            margin-left: 35%;
+        }
+        #amount{
+           height: 5vh;
+           width: 45vh;
+           margin-left: 10%;
+           margin-top: 10%;
+           box-shadow: 0px 2px 14px 3px #e900365f;
+           border: none;
+           font-size: larger;
+           font-family: 'Courier New', Courier, monospace;
+        }
+       ::placeholder{
+         text-align: center;
+       }
+        #submit{
+          height: 40px;
+          width: 90px;
+          margin-left: 39%;
+          margin-top: 10%;
+         background-color: #e90036;
+         box-shadow: 0px 2px 14px 3px #e900365f;
+         color: rgb(255, 255, 255);
+         font-family:Georgia, 'Times New Roman', Times, serif;
+         font-weight: bolder;
+         border: none;
+         border-radius: 5px;
+        }
+    </Style>
+</head>
+<body>
+	<header>
+        <div class="topnav" id="myTopnav">
+            <a href="#" id="brand-name">AnyWhere Gym</a>
+            <a href="index.html" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="search.html">Your Gym</a>
+            <a href="planandpricing.html">Plan & Pricing </a>
+            <a href="wallet.html" class="active">Wallet </a>
+            <div class="right-lnk">
+            <a href="login.html" id="login">Login / Signup</i></a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+    </header>   
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>
+<form method="post" action="trans" class="amount-form" id="amount-form">
+		<div>
+			<label for="amount" class="amt">Amount</label><br>
+			<input type="number" name="amount" id="amount"  placeholder="1000">
+		</div>
+		<div >
+			<input type="submit" id="submit">
+		</div>
+		</form>
+		
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	<script type="text/javascript">
+		var status =document.getElementById("status").value;
+		if(status == "success"){
+			swal("Congrats!amount","success");
+		}
+		if(status == "InvalidAmount"){
+			swal("Error!","Enter a valid Amount");
+		}
+		if(status == "failed"){
+			swal("Error!","Enter a valid Amount");
+		}
+	</script>
+</body>
+</html>
